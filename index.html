@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Αντιγριπικός Εμβολιασμός 2026-27</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Commissioner:wght@500;600;700;800&family=Noto+Sans:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+/* Layout: a single guided column — briefing → slides → quiz → completion slip. Brand colours from the deck. */
+:root{
+  --navy:#0d2c40; --teal:#23879a; --teal-soft:#e3f1f3; --coral:#e8495f;
+  --bg:#f5f8f9; --surface:#ffffff; --fg:#0d2c40; --muted:#4f6676; --line:#d5e1e6;
+  --ok:#1d7a4f; --ok-soft:#e5f4ec; --bad:#c23a4c; --bad-soft:#fbe9ec;
+  --display:"Commissioner","Noto Sans",system-ui,sans-serif;
+  --body:"Noto Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --navy:#cfe6ee; --teal:#4fb7c7; --teal-soft:#123a45; --coral:#ff7084;
+  --bg:#0a1a24; --surface:#102634; --fg:#e4eff3; --muted:#9db3bf; --line:#22404f;
+  --ok:#5fd09a; --ok-soft:#113626; --bad:#ff8193; --bad-soft:#3d1820; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --navy:#cfe6ee; --teal:#4fb7c7; --teal-soft:#123a45; --coral:#ff7084;
+  --bg:#0a1a24; --surface:#102634; --fg:#e4eff3; --muted:#9db3bf; --line:#22404f;
+  --ok:#5fd09a; --ok-soft:#113626; --bad:#ff8193; --bad-soft:#3d1820; color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.55;margin:0}
+.wrap{max-width:960px;margin:0 auto;padding-inline:16px;padding-block:20px 48px}
+h1,h2,h3{font-family:var(--display);color:var(--navy);text-wrap:balance;margin:0}
+h1{font-size:clamp(1.7rem,4.5vw,2.5rem);font-weight:800;letter-spacing:.01em;line-height:1.15}
+h2{font-size:clamp(1.25rem,3vw,1.6rem);font-weight:700;line-height:1.25}
+.eyebrow{font-family:var(--display);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);font-weight:700}
+p{margin:0}
+.muted{color:var(--muted)}
+
+/* step rail */
+.rail{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.step{display:flex;align-items:center;gap:8px;font-size:.85rem;color:var(--muted);font-family:var(--display);font-weight:600;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface)}
+.step b{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--line);color:var(--fg);font-size:.75rem}
+.step.on{border-color:var(--teal);color:var(--fg)}
+.step.on b{background:var(--teal);color:#fff}
+.step.done b{background:var(--ok);color:#fff}
+
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:clamp(18px,4vw,32px)}
+.stack{display:flex;flex-direction:column;gap:16px}
+.intro p{max-width:65ch}
+.callout{border-left:4px solid var(--teal);background:var(--teal-soft);padding:14px 16px;border-radius:0 10px 10px 0}
+.facts{display:flex;flex-wrap:wrap;gap:10px 22px;font-size:.92rem;color:var(--muted)}
+.facts span strong{color:var(--fg)}
+
+label{font-weight:600;font-size:.92rem;display:block;margin-bottom:6px}
+input[type=text]{width:100%;font:inherit;padding:11px 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--fg)}
+input[type=text]:focus-visible,button:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+.form{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:end;max-width:640px}
+@media (max-width:560px){.form{grid-template-columns:1fr}}
+.seg{display:flex;gap:8px}
+.seg button{min-width:72px}
+.err{color:var(--bad);font-size:.9rem}
+
+button{font:inherit;cursor:pointer}
+.btn{font-family:var(--display);font-weight:700;border-radius:10px;padding:11px 20px;border:1px solid var(--teal);background:var(--teal);color:#fff;font-size:1rem}
+.btn:hover{filter:brightness(1.08)}
+.btn[disabled]{opacity:.45;cursor:not-allowed;filter:none}
+.btn.ghost{background:transparent;color:var(--teal)}
+.chip{font-family:var(--display);font-weight:700;padding:10px 16px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--fg)}
+.chip[aria-pressed=true]{background:var(--navy);border-color:var(--navy);color:var(--surface)}
+.row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.row.between{justify-content:space-between}
+
+/* slides */
+.stage{position:relative;border-radius:10px;overflow:hidden;border:1px solid var(--line);background:#fff;aspect-ratio:16/9;max-width:100%}
+.stage img{display:block;width:100%;height:100%;object-fit:contain}
+.bar{height:6px;border-radius:6px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--teal);transition:width .25s}
+.count{font-variant-numeric:tabular-nums;font-family:var(--display);font-weight:600}
+.thumbs{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px}
+.thumbs button{flex:0 0 auto;width:74px;aspect-ratio:16/9;padding:0;border:2px solid transparent;border-radius:6px;overflow:hidden;background:#fff;opacity:.6}
+.thumbs button.seen{opacity:1}
+.thumbs button.cur{border-color:var(--coral);opacity:1}
+.thumbs img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* quiz */
+.qhead{display:flex;justify-content:space-between;gap:12px;align-items:baseline;flex-wrap:wrap}
+.qtext{font-family:var(--display);font-size:clamp(1.08rem,2.4vw,1.28rem);font-weight:600;line-height:1.4;color:var(--fg);max-width:70ch}
+.opts{display:flex;flex-direction:column;gap:10px}
+.opt{text-align:left;display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:start;padding:13px 14px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--fg);min-width:0}
+.opt:hover:not([disabled]){border-color:var(--teal)}
+.opt .k{display:grid;place-items:center;width:30px;height:30px;border-radius:8px;background:var(--surface);border:1px solid var(--line);font-family:var(--display);font-weight:800}
+.opt .t{min-width:0}
+.opt .why{display:block;margin-top:8px;font-style:italic;font-size:.93rem;color:var(--muted)}
+.opt .tag{display:inline-block;font-style:normal;font-family:var(--display);font-weight:700;font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;margin-right:6px}
+.opt[disabled]{cursor:default}
+.opt.correct{border-color:var(--ok);background:var(--ok-soft)}
+.opt.correct .k{background:var(--ok);border-color:var(--ok);color:#fff}
+.opt.correct .tag{color:var(--ok)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.opt.wrong .k{background:var(--bad);border-color:var(--bad);color:#fff}
+.opt.wrong .tag{color:var(--bad)}
+.verdict{font-family:var(--display);font-weight:700;padding:10px 14px;border-radius:10px}
+.verdict.ok{background:var(--ok-soft);color:var(--ok)}
+.verdict.bad{background:var(--bad-soft);color:var(--bad)}
+.dots{display:flex;gap:5px;flex-wrap:wrap}
+.dots i{width:12px;height:12px;border-radius:50%;background:var(--line)}
+.dots i.ok{background:var(--ok)} .dots i.bad{background:var(--bad)} .dots i.cur{outline:2px solid var(--teal);outline-offset:1px}
+
+/* result */
+.score{font-family:var(--display);font-weight:800;font-size:clamp(2.6rem,9vw,4rem);line-height:1;color:var(--teal);font-variant-numeric:tabular-nums}
+.slip{font-family:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;font-size:.92rem;background:var(--bg);border:1px dashed var(--teal);border-radius:10px;padding:14px;white-space:pre-wrap;word-break:break-word;user-select:all}
+.review{display:flex;flex-direction:column;gap:6px;font-size:.93rem}
+.review div{display:grid;grid-template-columns:28px 1fr;gap:8px}
+.review .m{font-weight:700}
+.review .m.ok{color:var(--ok)} .review .m.bad{color:var(--bad)}
+footer{margin-top:22px;font-size:.82rem;color:var(--muted)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="rail" id="rail">
+    <div class="step" data-s="intro"><b>1</b>Ξεκίνημα</div>
+    <div class="step" data-s="slides"><b>2</b>Παρουσίαση</div>
+    <div class="step" data-s="quiz"><b>3</b>Κουίζ</div>
+    <div class="step" data-s="done"><b>4</b>Ολοκλήρωση</div>
+  </div>
+
+  <!-- INTRO -->
+  <section id="v-intro" class="panel stack intro">
+    <div class="eyebrow">Εκπαίδευση προσωπικού · Ph Lab Φαρμακείο</div>
+    <h1>Αντιγριπικός εμβολιασμός<br>από τη σύσταση στην πράξη</h1>
+    <p>Αυτή είναι μια <strong>εκπαιδευτική παρουσίαση για τον εποχικό αντιγριπικό εμβολιασμό της περιόδου 2026-2027</strong>. Καλύπτει τι είναι η γρίπη, τις ομάδες κινδύνου, τα εμβόλια που κυκλοφορούν φέτος (όλα τριδύναμα), τους εμβολιασμούς ενηλίκων, τη συγχορήγηση και τις συχνές δύσκολες περιπτώσεις στον πάγκο.</p>
+    <p>Μετά την παρουσίαση ακολουθεί ένα σύντομο <strong>κουίζ αυτοαξιολόγησης</strong>. Δεν είναι εξέταση: σκοπός του είναι να ελέγξεις μόνος/η σου αν κατανόησες τα βασικά σημεία. Μόλις επιλέξεις απάντηση, βλέπεις αμέσως ποια είναι η σωστή και γιατί ισχύει ή όχι κάθε επιλογή.</p>
+    <div class="callout">Στο τέλος θα πάρεις ένα έτοιμο μήνυμα ολοκλήρωσης. Αντέγραψέ το ως απάντηση στο thread της ανάρτησης στο κανάλι <strong>#εκπαίδευση</strong> στο Slack, για να ενημερωθεί το αρχείο εκπαίδευσής σου.</div>
+    <div class="facts"><span><strong>26</strong> διαφάνειες</span><span><strong>12</strong> ερωτήσεις</span><span>περίπου <strong>20 λεπτά</strong></span></div>
+    <form id="startForm" class="stack" novalidate>
+      <div class="form">
+        <div><label for="name">Ονοματεπώνυμο</label><input id="name" type="text" autocomplete="name" placeholder="π.χ. Μαρία Παπαδοπούλου"></div>
+        <div><label id="deptLbl">Τμήμα</label><div class="seg" role="group" aria-labelledby="deptLbl">
+          <button type="button" class="chip" data-dept="Rx" aria-pressed="false">Rx</button>
+          <button type="button" class="chip" data-dept="Log" aria-pressed="false">Log</button>
+        </div></div>
+      </div>
+      <p class="err" id="startErr" hidden></p>
+      <div class="row"><button class="btn" type="submit" id="startBtn">Ξεκίνα την παρουσίαση</button><span class="muted" id="resumeNote" hidden></span></div>
+    </form>
+  </section>
+
+  <!-- SLIDES -->
+  <section id="v-slides" class="panel stack" hidden>
+    <div class="row between"><h2>Παρουσίαση</h2><span class="count" id="slideCount">1 / 26</span></div>
+    <div class="bar"><i id="slideBar" style="width:0"></i></div>
+    <div class="stage"><img id="slideImg" alt="Διαφάνεια παρουσίασης"></div>
+    <div class="row between">
+      <button class="btn ghost" id="prevBtn">← Προηγούμενη</button>
+      <button class="btn" id="nextBtn">Επόμενη →</button>
+    </div>
+    <div class="thumbs" id="thumbs" aria-label="Όλες οι διαφάνειες"></div>
+    <p class="muted" id="slideHint">Το κουίζ ανοίγει μόλις δεις όλες τις διαφάνειες. Μπορείς να χρησιμοποιήσεις και τα βελάκια του πληκτρολογίου.</p>
+  </section>
+
+  <!-- QUIZ -->
+  <section id="v-quiz" class="panel stack" hidden>
+    <div class="qhead"><span class="eyebrow" id="qNum">Ερώτηση 1 από 12</span><div class="dots" id="dots"></div></div>
+    <p class="qtext" id="qText"></p>
+    <div class="opts" id="opts"></div>
+    <p class="verdict" id="verdict" hidden></p>
+    <div class="row between">
+      <button class="btn ghost" id="backSlides">Ξανά στην παρουσίαση</button>
+      <button class="btn" id="qNext" disabled>Επόμενη ερώτηση →</button>
+    </div>
+  </section>
+
+  <!-- DONE -->
+  <section id="v-done" class="panel stack" hidden>
+    <div class="eyebrow">Ολοκλήρωση</div>
+    <div class="row" style="gap:20px;align-items:flex-end"><div class="score" id="score">0/12</div><p class="muted" id="scoreNote"></p></div>
+    <h2>Τελευταίο βήμα: δήλωσε την ολοκλήρωση στο Slack</h2>
+    <p>Αντέγραψε το παρακάτω μήνυμα και κάνε το επικόλληση ως <strong>απάντηση στο thread</strong> της ανάρτησης «Αντιγριπικός εμβολιασμός 2026-2027» στο <strong>#εκπαίδευση</strong>.</p>
+    <div class="slip" id="slip"></div>
+    <div class="row"><button class="btn" id="copyBtn">Αντιγραφή μηνύματος</button><span id="copyMsg" class="muted" role="status"></span></div>
+    <h3 style="margin-top:8px">Οι απαντήσεις σου</h3>
+    <div class="review" id="review"></div>
+    <div class="row"><button class="btn ghost" id="retry">Κάνε ξανά το κουίζ</button><button class="btn ghost" id="reSlides">Δες ξανά την παρουσίαση</button></div>
+  </section>
+
+  <footer>Εκπαιδευτικό υλικό για εσωτερική χρήση του προσωπικού. Για κάθε απόφαση εμβολιασμού ισχύουν η ΠΧΠ κάθε σκευάσματος και οι οδηγίες της Εθνικής Επιτροπής Εμβολιασμών.</footer>
+</div>
+
+<script>
+const QUIZ = [{"q": "Ποια είναι η κύρια διαφοροποίηση μεταξύ των αντιγριπικών εμβολίων Efluelda και Fluad όσον αφορά τη σύνθεσή τους και τα ενδεικνυόμενα ηλικιακά όρια;", "opts": [{"k": "A", "text": "Το Efluelda είναι εμβόλιο κυτταροκαλλιέργειας για άτομα ≥50 ετών, ενώ το Fluad είναι υψηλής δόσης για άτομα ≥65 ετών.", "exp": "Το εμβόλιο παραγωγής σε κυτταροκαλλιέργεια είναι το Flucelvax, ενώ τόσο το Efluelda όσο και το Fluad παράγονται σε αυγά."}, {"k": "B", "text": "Και τα δύο σκευάσματα περιέχουν την ίδια δόση αντιγόνου (15 μg HA/στέλεχος), αλλά το Efluelda ενδείκνυται από την ηλικία των 50 ετών και το Fluad από τα 60 έτη.", "exp": "Το Efluelda περιέχει 60 μg αιμοσυγκολλητίνης (HA) ανά στέλεχος, συνεπώς η περιεκτικότητά του σε αντιγόνο είναι σημαντικά υψηλότερη από τη συμβατική δόση."}, {"k": "C", "text": "Το Efluelda περιέχει υψηλή δόση αντιγόνου (60 μg HA/στέλεχος) για άτομα ≥60 ετών, ενώ το Fluad περιέχει ανοσοενισχυτικό MF59 (15 μg HA/στέλεχος) για άτομα ≥50 ετών.", "exp": "Το Efluelda διαθέτει τετραπλάσια ποσότητα αντιγόνου ανά στέλεχος για την ενίσχυση της ανοσιακής απόκρισης στις ηλικίες ≥60, ενώ το Fluad χρησιμοποιεί το ανοσοενισχυτικό MF59 με κανονική δόση αντιγόνου για ηλικίες ≥50."}, {"k": "D", "text": "Το Efluelda χορηγείται αποκλειστικά ενδορρινικά σε άτομα ≥60 ετών, ενώ το Fluad χορηγείται υποδόρια σε άτομα ≥18 ετών.", "exp": "Το Efluelda είναι ενέσιμο σκεύασμα (IM/SC) και όχι ρινικό σπρέι, ενώ το Fluad χορηγείται αποκλειστικά ενδομυϊκά."}], "correct": "C"}, {"q": "Για ποιο από τα παρακάτω αντιγριπικά σκευάσματα η οδός χορήγησης περιορίζεται ΑΠΟΚΛΕΙΣΤΙΚΑ στην ενδομυϊκή (IM) ένεση;", "opts": [{"k": "A", "text": "Influvac", "exp": "Το Influvac επιτρέπει τη χορήγηση ενδομυϊκά καθώς και με βαθιά υποδόρια ένεση."}, {"k": "B", "text": "Fluad", "exp": "Η παρουσία του ανοσοενισχυτικού επιβάλλει την αυστηρά ενδομυϊκή χορήγηση για τη διασφάλιση της σωστής ανοσογονικότητας και την αποφυγή τοπικών αντιδράσεων."}, {"k": "C", "text": "Vaxigrip", "exp": "Το Vaxigrip εγκρίνεται για χορήγηση τόσο ενδομυϊκά (IM) όσο και υποδόρια (SC)."}, {"k": "D", "text": "Efluelda", "exp": "Το Efluelda μπορεί να χορηγηθεί είτε ενδομυϊκά είτε υποδόρια."}], "correct": "B"}, {"q": "Ένα παιδί 6 ετών προσέρχεται για εμβολιασμό. Στο ιστορικό του αναφέρεται διάγνωση σοβαρού άσθματος με πρόσφατο επεισόδιο ενεργού συριγμού. Ποια είναι η ενδεδειγμένη τακτική εμβολιασμού;", "opts": [{"k": "A", "text": "Πλήρης αναβολή του αντιγριπικού εμβολιασμού μέχρι την πλήρη ύφεση των ασθματικών συμπτωμάτων για τουλάχιστον ένα έτος.", "exp": "Τα παιδιά με χρόνια αναπνευστικά νοσήματα ανήκουν στις ομάδες υψηλού κινδύνου και πρέπει να εμβολιάζονται με ενέσιμο αδρανοποιημένο εμβόλιο."}, {"k": "B", "text": "Χορήγηση ενέσιμου αδρανοποιημένου αντιγριπικού εμβολίου, καθώς το ενδορρινικό ζωντανό εμβόλιο (Fluenz) αντενδείκνυται σε σοβαρό άσθμα ή ενεργό συριγμό.", "exp": "Το ζωντανό εξασθενημένο εμβόλιο Fluenz αντενδείκνυται σε άτομα με σοβαρό άσθμα ή ενεργό συριγμό, καθιστώντας τα αδρανοποιημένα ενέσιμα εμβόλια την ενδεδειγμένη επιλογή."}, {"k": "C", "text": "Χορήγηση ενδορρινικού εμβολίου Fluenz, εφόσον μειωθεί η δόση στο μισό (0,1 mL συνολικά).", "exp": "Η τροποποίηση της δόσης του Fluenz δεν αναιρεί την αντένδειξη που ισχύει για παιδιά με σοβαρό άσθμα ή συριγμό."}, {"k": "D", "text": "Χορήγηση Fluenz εντός 10 λεπτών μετά τη λήψη εισπνεόμενου βρογχοδιασταλτικού.", "exp": "Η προετοιμασία με βρογχοδιασταλτικά δεν επιτρέπει τη χορήγηση ζωντανού εξασθενημένου εμβολίου όταν υπάρχει αντένδειξη σοβαρού άσθματος."}], "correct": "B"}, {"q": "Παιδί 10 ετών λάμβανε αντιιική θεραπεία με οσελταμιβίρη (Tamiflu). Πότε μπορεί να χορηγηθεί με ασφάλεια το ενδορρινικό εμβόλιο Fluenz μετά τη διακοπή της αγωγής;", "opts": [{"k": "A", "text": "Τουλάχιστον 12 ώρες μετά τη διακοπή της θεραπείας.", "exp": "Το διάστημα των 12 ωρών είναι ανεπαρκές για την απομάκρυνση του αντιιικού παράγοντα από τον οργανισμό."}, {"k": "B", "text": "Απαιτείται αναμονή 4 εβδομάδων πριν τη χορήγηση του Fluenz.", "exp": "Το διάστημα των 4 εβδομάδων ισχύει για το μεσοδιάστημα μεταξύ δύο ζωντανών εμβολίων και όχι για τη διακοπή της αντιιικής θεραπείας."}, {"k": "C", "text": "Τουλάχιστον 48 ώρες μετά τη διακοπή της αντιιικής θεραπείας.", "exp": "Τα αντιιικά φάρμακα εμποδίζουν τον πολλαπλασιασμό του ζωντανού εξασθενημένου ιού του Fluenz, επομένως απαιτείται μεσοδιάστημα τουλάχιστον 48 ωρών από τη διακοπή της."}, {"k": "D", "text": "Αμέσως μετά τη λήψη της τελευταίας δόσης της οσελταμιβίρης.", "exp": "Η παρουσία δραστικών επιπέδων αντιιικού στο σώμα αδρανοποιεί το ζωντανό στέλεχος του εμβολίου και μειώνει την αποτελεσματικότητά του."}], "correct": "C"}, {"q": "Πώς πρέπει να προγραμματιστεί ο εμβολιασμός ενός παιδιού 4 ετών που πρόκειται να λάβει την ίδια περίοδο το ενδορρινικό Fluenz και το εμβόλιο MMR (ιλαράς-παρωτίτιδας-ερυθράς);", "opts": [{"k": "A", "text": "Το Fluenz πρέπει πάντα να χορηγείται 2 εβδομάδες μετά το MMR.", "exp": "Το διάστημα των 2 εβδομάδων εμπίπτει στην περίοδο ανοσιακής παρεμβολής μεταξύ δύο ζωντανών εμβολίων."}, {"k": "B", "text": "Απαγορεύεται η χορήγηση Fluenz εάν το παιδί έχει λάβει MMR εντός του ίδιου έτους.", "exp": "Η προηγούμενη λήψη MMR δεν αποκλείει τη χορήγηση Fluenz εφόσον τηρείται ο κανόνας της ταυτόχρονης χορήγησης ή της απόστασης 4 εβδομάδων."}, {"k": "C", "text": "Τα δύο ζωντανά εμβόλια μπορούν να χορηγηθούν την ίδια ημέρα ή με μεσοδιάστημα τουλάχιστον 4 εβδομάδων (28 ημερών).", "exp": "Η χορήγηση δύο ζωντανών εμβολίων πρέπει να γίνεται είτε ταυτόχρονα την ίδια ημέρα είτε με απόσταση τουλάχιστον 4 εβδομάδων για την αποφυγή ανοσιακής παρεμβολής."}, {"k": "D", "text": "Πρέπει υποχρεωτικά να απέχουν ακριβώς 24 έως 48 ώρες μεταξύ τους.", "exp": "Η χορήγηση ζωντανών εμβολίων με διαφορά λίγων ημερών μπορεί να επηρεάσει αρνητικά την ανάπτυξη ανοσιακής απάντησης στο δεύτερο εμβόλιο."}], "correct": "C"}, {"q": "Ενήλικας 35 ετών με επιβεβαιωμένη σοβαρή αλλεργία στο αυγό επιθυμεί να εμβολιαστεί κατά της γρίπης. Ποια είναι η καταλληλότερη επιλογή εμβολίου;", "opts": [{"k": "A", "text": "Κανένα αντιγριπικό εμβόλιο δεν επιτρέπεται σε άτομα με αλλεργία στο αυγό.", "exp": "Η αλλεργία στο αυγό δεν αποκλείει τον αντιγριπικό εμβολιασμό, καθώς υπάρχει διαθέσιμο εμβόλιο κυτταροκαλλιέργειας."}, {"k": "B", "text": "Fluenz ενδορρινικό, καθώς η ρινική οδός εμποδίζει τη συστηματική αλλεργική αντίδραση.", "exp": "Το Fluenz παράγεται σε αυγά και αντενδείκνυται σε άτομα με ιστορικό σοβαρής αλλεργικής αντίδρασης/αναφυλαξίας στο αυγό."}, {"k": "C", "text": "Efluelda, διότι η υψηλή συμπύκνωση εξουδετερώνει τα αλλεργιογόνα υπολείμματα.", "exp": "Το Efluelda παράγεται σε αυγά και δεν αποτελεί εναλλακτική λύση ελεύθερη πρωτεϊνών αυγού."}, {"k": "D", "text": "Flucelvax, διότι παράγεται σε κυτταροκαλλιέργεια και είναι ελεύθερο πρωτεϊνών αυγού.", "exp": "Το Flucelvax παράγεται σε κυτταροκαλλιέργεια (χωρίς αυγό), αποτελώντας την ιδανική επιλογή για άτομα με αλλεργία στο αυγό."}], "correct": "D"}, {"q": "Μια γυναίκα στο 1ο τρίμηνο της εγκυμοσύνης ζητά ενημέρωση για τον αντιγριπικό εμβολιασμό. Ποια είναι η ορθή επιστημονική οδηγία;", "opts": [{"k": "A", "text": "Το αδρανοποιημένο ενέσιμο αντιγριπικό εμβόλιο συστήνεται και μπορεί να χορηγηθεί σε οποιοδήποτε τρίμηνο της κύησης.", "exp": "Τα ενέσιμα αδρανοποιημένα αντιγριπικά εμβόλια είναι ασφαλή και συνιστώνται ισχυρά για τις έγκυες γυναίκες ανεξαρτήτως τριμήνου κύησης."}, {"k": "B", "text": "Ο εμβολιασμός απαγορεύεται κατά το 1ο τρίμηνο και επιτρέπεται μόνο μετά τον τοκετό.", "exp": "Ο αντιγριπικός εμβολιασμός προστατεύει την έγκυο και το νεογνό και δεν αναβάλλεται για μετά τον τοκετό."}, {"k": "C", "text": "Ο εμβολιασμός επιτρέπεται μόνο εάν συνοδεύεται από προληπτική λήψη αντιβιοτικών.", "exp": "Τα αντιβιοτικά δεν έχουν καμία ένδειξη ή χρησιμότητα κατά τον εμβολιασμό με αδρανοποιημένα εμβόλια."}, {"k": "D", "text": "Επιτρέπεται αποκλειστικά η χρήση του ζωντανού εξασθενημένου εμβολίου (Fluenz).", "exp": "Τα ζωντανά εξασθενημένα εμβόλια γενικά αποφεύγονται στην εγκυμοσύνη, ενώ τα ενέσιμα αδρανοποιημένα αποτελούν την ενδεδειγμένη επιλογή."}], "correct": "A"}, {"q": "Ποια είναι η συνιστώμενη τακτική όταν προγραμματίζεται ταυτόχρονη χορήγηση του ανοσοενισχυμένου αντιγριπικού Fluad με ένα άλλο εμβόλιο που επίσης περιέχει ανοσοενισχυτικό (όπως το Shingrix);", "opts": [{"k": "A", "text": "Τα δύο εμβόλια πρέπει να αναμειγνύονται στην ίδια σύριγγα πριν τη χορήγηση.", "exp": "Διαφορετικά εμβόλια δεν αναμειγνύονται ποτέ στην ίδια σύριγγα."}, {"k": "B", "text": "Μπορεί να εξεταστεί η επιλογή ενός μη ανοσοενισχυμένου αντιγριπικού εμβολίου, αλλά αν αυτό δεν είναι διαθέσιμο, ο εμβολιασμός δεν καθυστερεί.", "exp": "Λόγω περιορισμένων δεδομένων για τη συγχορήγηση δύο ανοσοενισχυμένων εμβολίων, προτιμάται μη ανοσοενισχυμένο αντιγριπικό αν υπάρχει, χωρίς να καθυστερείται ο εμβολιασμός αν δεν είναι διαθέσιμο."}, {"k": "C", "text": "Απαγορεύεται αυστηρά η χορήγηση και τα εμβόλια πρέπει να απέχουν τουλάχιστον 6 μήνες μεταξύ τους.", "exp": "Δεν υπάρχει απόλυτη αντένδειξη ούτε απαίτηση εξάμηνης καθυστέρησης για τον αντιγριπικό εμβολιασμό."}, {"k": "D", "text": "Χορηγείται η μισή δόση από κάθε εμβόλιο για τη μείωση των τοπικών αντιδράσεων.", "exp": "Η μείωση της δόσης των εμβολίων δεν εγκρίνεται και υπονομεύει την προστασία του ασθενούς."}], "correct": "B"}, {"q": "Παιδί 3 ετών που εμβολιάζεται για πρώτη φορά κατά της γρίπης έλαβε την 1η δόση με Vaxigrip. Επιτρέπεται η 2η δόση (μετά από ≥4 εβδομάδες) να γίνει με το ενδορρινικό Fluenz;", "opts": [{"k": "A", "text": "Όχι, είναι υποχρεωτικό και οι δύο δόσεις να πραγματοποιούνται με το ίδιο ακριβώς εμπορικό σκεύασμα.", "exp": "Δεν απαιτείται η χρήση του ίδιου εμπορικού σκευάσματος για την ολοκλήρωση του εμβολιαστικού σχήματος των δύο δόσεων."}, {"k": "B", "text": "Ναι, αλλά μόνο εφόσον η 2η δόση δοθεί εντός 7 ημερών από την πρώτη.", "exp": "Το μεσοδιάστημα μεταξύ των δύο δόσεων στα παιδιά που εμβολιάζονται για πρώτη φορά πρέπει να είναι τουλάχιστον 4 εβδομάδες."}, {"k": "C", "text": "Ναι, η αλλαγή σκευάσματος επιτρέπεται εφόσον το παιδί είναι ≥2 ετών και δεν παρουσιάζει αντενδείξεις για το Fluenz.", "exp": "Η εναλλαγή μεταξύ αδρανοποιημένου και ζωντανού εξασθενημένου εμβολίου στις δύο δόσεις του πρώτου εμβολιασμού είναι αποδεκτή εφόσον πληρούνται τα ηλικιακά κριτήρια."}, {"k": "D", "text": "Όχι, διότι η μετάβαση από αδρανοποιημένο σε ζωντανό εμβόλιο ακυρώνει τα αντισώματα της πρώτης δόσης.", "exp": "Η ανοσιακή απόκριση ενισχύεται κανονικά ανεξάρτητα από τον τύπο του εμβολίου που χρησιμοποιείται στη δεύτερη δόση."}], "correct": "C"}, {"q": "Ποιες οδοί χορήγησης είναι εγκεκριμένες σύμφωνα με τις προδιαγραφές των αδρανοποιημένων εμβολίων Vaxigrip και Efluelda;", "opts": [{"k": "A", "text": "Ενδομυϊκά (IM) και Υποδόρια (SC).", "exp": "Τόσο το Vaxigrip όσο και το Efluelda διαθέτουν έγκριση χορήγησης είτε ενδομυϊκά είτε υποδόρια."}, {"k": "B", "text": "Αποκλειστικά Ενδορρινικά.", "exp": "Η ενδορρινική οδός αφορά αποκλειστικά το ζωντανό εξασθενημένο εμβόλιο Fluenz."}, {"k": "C", "text": "Αποκλειστικά Ενδοδερμικά (ID).", "exp": "Τα συγκεκριμένα εμβόλια δεν είναι διαμορφωμένα για ενδοδερμική χορήγηση."}, {"k": "D", "text": "Αποκλειστικά Ενδοφλέβια (IV).", "exp": "Η ενδοφλέβια ένεση δεν αποτελεί οδό χορήγησης για κανένα αντιγριπικό εμβόλιο."}], "correct": "A"}, {"q": "Ασθενής που λαμβάνει αντιβιοτική αγωγή για ήπια οδοντική λοίμωξη χωρίς πυρετό ρωτά αν πρέπει να αναβάλει τον αντιγριπικό εμβολιασμό. Ποια είναι η σωστή απάντηση;", "opts": [{"k": "A", "text": "Ο εμβολιασμός μπορεί να γίνει κανονικά, καθώς η αντιβίωση και η ήπια νόσηση δεν αποτελούν αντένδειξη.", "exp": "Η λήψη αντιβιοτικών και η ήπια νόσηση χωρίς πυρετό δεν επηρεάζουν την ανοσιακή απόκριση και δεν απαιτούν αναβολή του εμβολιασμού."}, {"k": "B", "text": "Απαιτείται η αλλαγή του ενέσιμου εμβολίου σε ενδορρινικό Fluenz όταν ο ασθενής λαμβάνει αντιβιοτικά.", "exp": "Η λήψη αντιβιοτικών δεν επιβάλλει αλλαγή σκευάσματος ούτε ευνοεί τη χρήση ζωντανού εμβολίου."}, {"k": "C", "text": "Ο εμβολιασμός επιτρέπεται μόνο εάν διπλασιαστεί η δόση του εμβολίου.", "exp": "Η δοσολογία του εμβολίου παραμένει σταθερή και δεν τροποποιείται λόγω παράλληλης φαρμακευτικής αγωγής."}, {"k": "D", "text": "Ο εμβολιασμός πρέπει να αναβληθεί μέχρι να παρθεί η τελευταία δόση αντιβίωσης, διότι τα αντιβιοτικά αδρανοποιούν τα αντισώματα.", "exp": "Τα αντιβιοτικά δρουν κατά των βακτηρίων και δεν επηρεάζουν τη δράση ή την ανάπτυξη αντισωμάτων από το αντιγριπικό εμβόλιο."}], "correct": "A"}, {"q": "Ποιος είναι ο ακριβής όγκος και ο ενδεδειγμένος τρόπος εφαρμογής του ενδορρινικού εμβολίου Fluenz;", "opts": [{"k": "A", "text": "1,0 mL συνολικά, χορηγούμενο ως 0,5 mL σε κάθε βραχίονα ενδομυϊκά.", "exp": "Ο όγκος και η οδός αυτή αφορούν ενέσιμα σκευάσματα και όχι τη ρινική χορήγηση του Fluenz."}, {"k": "B", "text": "0,2 mL συνολικά, χορηγούμενο ως 0,1 mL σε κάθε ρουθούνι.", "exp": "Το Fluenz χορηγείται ενδορρινικά με συνολικό όγκο 0,2 mL, κατανεμημένο ισόποσα (0,1 mL) σε κάθε ρουθούνι."}, {"k": "C", "text": "0,05 mL συνολικά, χορηγούμενο ως εφάπαξ σταγόνα στη γλώσσα.", "exp": "Το Fluenz εφαρμόζεται στον ρινικό βλεννογόνο και όχι από το στόμα."}, {"k": "D", "text": "0,5 mL συνολικά, χορηγούμενο με βαθιά υποδόρια ένεση.", "exp": "Το Fluenz είναι ρινικό σπρέι και δεν χορηγείται με ενέσιμο τρόπο."}], "correct": "B"}];
+const N_SLIDES = 26;
+const slideSrc = i => "slides/s-" + String(i+1).padStart(2,"0") + ".jpg";
+const KEY = "flu2627-training-v1";
+
+let S = {name:"", dept:"", slide:0, seen:[], answers:{}, q:0, view:"intro", startedAt:null, slidesDoneAt:null, quizDoneAt:null};
+try { const raw = localStorage.getItem(KEY); if (raw) S = Object.assign(S, JSON.parse(raw)); } catch(e){}
+const save = () => { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch(e){} };
+const $ = id => document.getElementById(id);
+
+function show(view){
+  S.view = view; save();
+  for (const v of ["intro","slides","quiz","done"]) $("v-"+v).hidden = v !== view;
+  const order = ["intro","slides","quiz","done"], idx = order.indexOf(view);
+  document.querySelectorAll(".step").forEach((el,i)=>{ el.classList.toggle("on", i===idx); el.classList.toggle("done", i<idx || (i===3 && S.quizDoneAt)); });
+  if (view==="slides") renderSlide();
+  if (view==="quiz") renderQ();
+  if (view==="done") renderDone();
+  window.scrollTo({top:0});
+}
+
+/* intro */
+document.querySelectorAll("[data-dept]").forEach(b=>b.addEventListener("click",()=>{ S.dept=b.dataset.dept; syncDept(); save(); }));
+function syncDept(){ document.querySelectorAll("[data-dept]").forEach(b=>b.setAttribute("aria-pressed", String(b.dataset.dept===S.dept))); }
+$("name").value = S.name; syncDept();
+$("name").addEventListener("input",e=>{ S.name=e.target.value; save(); });
+if (S.startedAt && S.view!=="intro"){ $("resumeNote").hidden=false; $("resumeNote").textContent="Συνεχίζεις από εκεί που σταμάτησες."; }
+$("startForm").addEventListener("submit",e=>{
+  e.preventDefault();
+  const n = $("name").value.trim();
+  const err = !n || n.split(/\s+/).length<2 ? "Γράψε ονοματεπώνυμο (όνομα και επώνυμο)." : !S.dept ? "Διάλεξε τμήμα: Rx ή Log." : "";
+  $("startErr").hidden = !err; $("startErr").textContent = err;
+  if (err) return;
+  S.name = n; if (!S.startedAt) S.startedAt = new Date().toISOString();
+  show(S.slidesDoneAt ? (S.quizDoneAt ? "done" : (Object.keys(S.answers).length ? "quiz" : "slides")) : "slides");
+});
+
+/* slides */
+const thumbs = $("thumbs");
+for (let i=0;i<N_SLIDES;i++){ const b=document.createElement("button"); b.setAttribute("aria-label","Διαφάνεια "+(i+1)); const im=document.createElement("img"); im.loading="lazy"; im.src=slideSrc(i); im.alt=""; b.appendChild(im); b.addEventListener("click",()=>{S.slide=i;renderSlide();}); thumbs.appendChild(b); }
+function renderSlide(){
+  const i=S.slide; if(!S.seen.includes(i)) S.seen.push(i);
+  if (S.seen.length>=N_SLIDES && !S.slidesDoneAt) S.slidesDoneAt=new Date().toISOString();
+  save();
+  $("slideImg").src = slideSrc(i); $("slideImg").alt = "Διαφάνεια "+(i+1)+" από "+N_SLIDES;
+  $("slideCount").textContent = (i+1)+" / "+N_SLIDES;
+  $("slideBar").style.width = (S.seen.length/N_SLIDES*100)+"%";
+  $("prevBtn").disabled = i===0;
+  const last = i===N_SLIDES-1, all = S.seen.length>=N_SLIDES;
+  $("nextBtn").textContent = last ? (all ? "Πάμε στο κουίζ →" : "Δες τις υπόλοιπες διαφάνειες") : "Επόμενη →";
+  $("nextBtn").disabled = last && !all;
+  $("slideHint").textContent = all ? "Είδες όλες τις διαφάνειες. Το κουίζ είναι ανοιχτό." : "Το κουίζ ανοίγει μόλις δεις όλες τις διαφάνειες ("+S.seen.length+"/"+N_SLIDES+"). Μπορείς να χρησιμοποιήσεις και τα βελάκια του πληκτρολογίου.";
+  [...thumbs.children].forEach((b,k)=>{ b.classList.toggle("seen",S.seen.includes(k)); b.classList.toggle("cur",k===i); });
+  thumbs.children[i].scrollIntoView({block:"nearest",inline:"nearest"});
+  if (i+1<N_SLIDES){ const pre=new Image(); pre.src=slideSrc(i+1); }
+}
+$("prevBtn").onclick=()=>{ if(S.slide>0){S.slide--;renderSlide();} };
+$("nextBtn").onclick=()=>{ if(S.slide<N_SLIDES-1){S.slide++;renderSlide();} else if(S.slidesDoneAt){ show("quiz"); } };
+document.addEventListener("keydown",e=>{ if(S.view!=="slides"||e.target.tagName==="INPUT") return; if(e.key==="ArrowRight") $("nextBtn").click(); if(e.key==="ArrowLeft") $("prevBtn").click(); });
+
+/* quiz */
+function renderQ(){
+  const qi=S.q, q=QUIZ[qi], picked=S.answers[qi];
+  $("qNum").textContent = "Ερώτηση "+(qi+1)+" από "+QUIZ.length;
+  $("qText").textContent = q.q;
+  const dots=$("dots"); dots.innerHTML="";
+  QUIZ.forEach((qq,k)=>{ const d=document.createElement("i"); const a=S.answers[k]; if(a) d.className = a===qq.correct?"ok":"bad"; if(k===qi) d.classList.add("cur"); dots.appendChild(d); });
+  const box=$("opts"); box.innerHTML="";
+  q.opts.forEach(o=>{
+    const b=document.createElement("button"); b.className="opt"; b.type="button";
+    const k=document.createElement("span"); k.className="k"; k.textContent=o.k;
+    const t=document.createElement("span"); t.className="t"; t.textContent=o.text;
+    if (picked){
+      b.disabled=true;
+      const ok=o.k===q.correct;
+      if (ok) b.classList.add("correct"); else if (o.k===picked) b.classList.add("wrong");
+      const w=document.createElement("span"); w.className="why";
+      const tag=document.createElement("span"); tag.className="tag"; tag.textContent = ok ? "Σωστό" : (o.k===picked ? "Η επιλογή σου · Λάθος" : "Λάθος");
+      w.appendChild(tag); w.appendChild(document.createTextNode(o.exp)); t.appendChild(w);
+    }
+    b.appendChild(k); b.appendChild(t);
+    b.addEventListener("click",()=>{ if(S.answers[qi]) return; S.answers[qi]=o.k; save(); renderQ(); });
+    box.appendChild(b);
+  });
+  const v=$("verdict");
+  if (picked){ const ok=picked===q.correct; v.hidden=false; v.className="verdict "+(ok?"ok":"bad"); v.textContent = ok ? "Σωστά! Δες παρακάτω την εξήγηση για κάθε επιλογή." : "Η σωστή απάντηση είναι η "+q.correct+". Δες παρακάτω γιατί."; }
+  else v.hidden=true;
+  $("qNext").disabled = !picked;
+  $("qNext").textContent = qi===QUIZ.length-1 ? "Δες το αποτέλεσμα →" : "Επόμενη ερώτηση →";
+}
+$("qNext").onclick=()=>{ if(S.q<QUIZ.length-1){ S.q++; save(); renderQ(); window.scrollTo({top:0}); } else { if(!S.quizDoneAt) S.quizDoneAt=new Date().toISOString(); save(); show("done"); } };
+$("backSlides").onclick=()=>show("slides");
+
+/* done */
+const fmt = iso => { const d=new Date(iso); const p=n=>String(n).padStart(2,"0"); return p(d.getDate())+"/"+p(d.getMonth()+1)+"/"+d.getFullYear()+" "+p(d.getHours())+":"+p(d.getMinutes()); };
+function scoreOf(){ return QUIZ.reduce((s,q,k)=>s+(S.answers[k]===q.correct?1:0),0); }
+function renderDone(){
+  const sc=scoreOf(), n=QUIZ.length;
+  $("score").textContent = sc+"/"+n;
+  $("scoreNote").textContent = sc===n ? "Τέλεια! Όλες σωστές." : sc>=Math.ceil(n*0.75) ? "Πολύ καλά. Ρίξε μια ματιά στις ερωτήσεις που έχασες." : "Αξίζει να ξαναδείς τις διαφάνειες για τα σημεία που έχασες.";
+  $("slip").textContent =
+"✅ ΟΛΟΚΛΗΡΩΣΗ ΕΚΠΑΙΔΕΥΣΗΣ\n"+
+"Θέμα: Αντιγριπικός εμβολιασμός 2026-2027\n"+
+"Όνομα: "+S.name+"\n"+
+"Τμήμα: "+S.dept+"\n"+
+"Παρουσίαση: "+S.seen.length+"/"+N_SLIDES+" διαφάνειες ✔\n"+
+"Κουίζ: "+sc+"/"+n+" σωστές\n"+
+"Ολοκλήρωση: "+fmt(S.quizDoneAt||new Date().toISOString());
+  const r=$("review"); r.innerHTML="";
+  QUIZ.forEach((q,k)=>{ const ok=S.answers[k]===q.correct; const d=document.createElement("div"); const m=document.createElement("span"); m.className="m "+(ok?"ok":"bad"); m.textContent=ok?"✓":"✗"; const t=document.createElement("span"); t.textContent=(k+1)+". "+q.q+(ok?"":"  (σωστή: "+q.correct+")"); d.append(m,t); r.appendChild(d); });
+}
+$("copyBtn").onclick=async()=>{
+  const txt=$("slip").textContent;
+  try { await navigator.clipboard.writeText(txt); $("copyMsg").textContent="Αντιγράφηκε. Κάνε επικόλληση στο thread του Slack."; }
+  catch(e){ const rg=document.createRange(); rg.selectNodeContents($("slip")); const sel=getSelection(); sel.removeAllRanges(); sel.addRange(rg); $("copyMsg").textContent="Το κείμενο επιλέχθηκε. Πάτα Ctrl+C (ή Αντιγραφή) και επικόλλησε στο Slack."; }
+};
+$("retry").onclick=()=>{ S.answers={}; S.q=0; S.quizDoneAt=null; save(); show("quiz"); };
+$("reSlides").onclick=()=>show("slides");
+
+show(S.startedAt && S.name && S.dept ? S.view : "intro");
+</script>
+</body>
+</html>
